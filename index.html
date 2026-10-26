@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
+<head 
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#FFB84D">
+
+<!-- Pengaturan tampilan di iPhone -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="BacaCeria">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#6c63ff">
@@ -19,7 +27,18 @@
 @media(max-width:420px){.hero{grid-template-columns:1fr}.hero-art{display:none}.wallets{gap:5px}.pill{font-size:.72rem}.lesson-list,.story-list,.shop-grid{grid-template-columns:1fr}.section-head h2{font-size:1.2rem}.answer-list{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
+<body 
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./service-worker.js")
+        .catch(function (error) {
+          console.error("Service worker gagal:", error);
+        });
+    });
+  }
+</script>
+>
 <div class="app">
 <header class="topbar">
   <div class="brand"><div class="logo">📚</div><div>Baca<span>Ceria</span><div style="font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:0">Belajar membaca jadi seru!</div></div></div>
